@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Password Strength Checker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="password-checker">
+            <h1>Password Strength Checker</h1>
+            <div class="password-input-container">
+                <input type="password" id="passwordInput" placeholder="Enter your password" autocomplete="off">
+                <button id="togglePassword" type="button">
+                    <i class="far fa-eye"></i>
+                </button>
+                <button id="copyPassword" type="button" title="Copy password">
+                    <i class="far fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="button-group">
+                <button id="generatePassword" class="action-button">
+                    <i class="fas fa-magic"></i> Generate Strong Password
+                </button>
+                <button id="checkBreaches" class="action-button">
+                    <i class="fas fa-shield-alt"></i> Check Password History
+                </button>
+            </div>
+            
+            <div class="strength-meter">
+                <div class="strength-bar"></div>
+            </div>
+            
+            <div class="strength-text">Password Strength: <span id="strengthText">None</span></div>
+            <div id="breachResults" class="breach-results"></div>
+            
+            <div class="requirements">
+                <h3>Password Requirements:</h3>
+                <ul>
+                    <li id="length">✖️ Minimum 8 characters</li>
+                    <li id="uppercase">✖️ At least one uppercase letter</li>
+                    <li id="lowercase">✖️ At least one lowercase letter</li>
+                    <li id="number">✖️ At least one number</li>
+                    <li id="special">✖️ At least one special character (@#$!%*?&)</li>
+                    <li id="noCommon">✖️ Not a commonly used password</li>
+                    <li id="noSequential">✖️ No sequential characters (123, abc)</li>
+                </ul>
+            </div>
+
+            <div class="generator-options" style="display: none;">
+                <h3>Password Generator Options:</h3>
+                <div class="option-group">
+                    <label>
+                        <input type="checkbox" id="genUppercase" checked> Uppercase Letters
+                    </label>
+                    <label>
+                        <input type="checkbox" id="genLowercase" checked> Lowercase Letters
+                    </label>
+                    <label>
+                        <input type="checkbox" id="genNumbers" checked> Numbers
+                    </label>
+                    <label>
+                        <input type="checkbox" id="genSpecial" checked> Special Characters
+                    </label>
+                    <div class="length-slider">
+                        <label for="passwordLength">Length: <span id="lengthValue">16</span></label>
+                        <input type="range" id="passwordLength" min="8" max="32" value="16">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>Why Password Security Matters</h2>
+            <p>A strong password is your first line of defense against unauthorized access. Good passwords:</p>
+            <ul>
+                <li>Are unique for each account</li>
+                <li>Avoid personal information</li>
+                <li>Mix different types of characters</li>
+                <li>Are long enough to resist brute-force attacks</li>
+            </ul>
+            
+            <div class="tips-section">
+                <h3>Pro Tips for Password Security:</h3>
+                <ul>
+                    <li>Use a different password for each account</li>
+                    <li>Consider using a password manager</li>
+                    <li>Enable two-factor authentication when available</li>
+                    <li>Change passwords periodically</li>
+                    <li>Never share passwords via email or text</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html> 
